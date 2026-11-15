@@ -1,30 +1,11 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import fs from 'node:fs';
-import path from 'node:path';
-import {fileURLToPath} from 'node:url';
+import path from 'path';
 import {defineConfig} from 'vite';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-function githubPages404Fallback() {
-  return {
-    name: 'github-pages-404-fallback',
-    closeBundle() {
-      const distDir = path.resolve(__dirname, 'dist');
-      const indexPath = path.join(distDir, 'index.html');
-      const fallbackPath = path.join(distDir, '404.html');
-      if (fs.existsSync(indexPath)) {
-        fs.copyFileSync(indexPath, fallbackPath);
-      }
-    },
-  };
-}
 
 export default defineConfig(() => {
   return {
-    base: './',
-    plugins: [react(), tailwindcss(), githubPages404Fallback()],
+    plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
