@@ -1,0 +1,6 @@
+{
+  "name": "Helllo World",
+  "description": "A minimal application displaying helllo world.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
